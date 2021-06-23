@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "util.c"
+#include "util/util.c"
 
 #define FUNC_DEF(func) { func, #func },
 
@@ -12,6 +12,7 @@ int quick(int *, int);
 int pick(int *, int);
 int heap(int *, int);
 int merge(int *, int);
+int mergeRec(int *, int);
 
 void sort(int (*f)(int *,int), int* arr, int len)
 {
@@ -27,10 +28,11 @@ int main(int argc, char **argv)
         const char * name;
     } goods[] = {
         FUNC_DEF(bubble)
-        //FUNC_DEF(bubble1)
-        //FUNC_DEF(bubble2)
-        //FUNC_DEF(bubble3)
-        FUNC_DEF(merge)
+        FUNC_DEF(bubble1)
+        FUNC_DEF(bubble2)
+        FUNC_DEF(bubble3)
+	FUNC_DEF(quick)
+	FUNC_DEF(mergeRec)
     };
 
     int arr[] = {7, 4, 5, 7, 6, 2, 0, 4, 1, 3, 1000, 1001, 1002, 1003, 1004, 1005, 1005, 1006, 1007};

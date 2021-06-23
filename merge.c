@@ -41,12 +41,12 @@ int merge2wayInplace(int *arr, int len, int pivot)
 // O(nlogn) time
 // O(1) space 
 // recursive
-int merge(int *arr, int len)
+int mergeRec(int *arr, int len)
 {
 	if (len <= 1) return 0;
 	int pivot = len / 2;
-	merge(arr, pivot);
-	merge(arr+pivot, len-pivot);
+	mergeRec(arr, pivot);
+	mergeRec(arr+pivot, len-pivot);
 	merge2wayInplace(arr, len, pivot);
 	return 0;
 }

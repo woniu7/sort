@@ -1,8 +1,7 @@
 int bubble(int *arr, int len) {
-    int dot = 0;
     for (int i = 0; i < len-1; i++) {
         for (int j = 0; j < len-1; j++) {
-            if (dot++, arr[j] > arr[j+1])
+            if (arr[j] > arr[j+1])
             {
                 arr[j] = arr[j]^arr[j+1];
                 arr[j+1] = arr[j]^arr[j+1];
@@ -10,14 +9,13 @@ int bubble(int *arr, int len) {
             }
         }
     }
-    return dot;
+    return 0;
 }
 
 int bubble1(int *arr, int len) {
-    int dot = 0;
     for (int i = 0; i < len-1; i++) {
         for (int j = 0; j < len-1-i; j++) {
-            if (dot++, arr[j] > arr[j+1])
+            if (arr[j] > arr[j+1])
             {
                 int tmp = arr[j];
                 arr[j] = arr[j+1];
@@ -25,15 +23,14 @@ int bubble1(int *arr, int len) {
             }
         }
     }
-    return dot;
+    return 0;
 }
 
 int bubble2(int *arr, int len) {
-    int dot = 0;
     for (int i = 0; i < len-1; i++) {
         int isSwap = 0;
         for (int j = 0; j < len-1-i; j++) {
-            if (dot++, arr[j] > arr[j+1])
+            if (arr[j] > arr[j+1])
             {
                 int tmp = arr[j];
                 arr[j] = arr[j+1];
@@ -45,27 +42,25 @@ int bubble2(int *arr, int len) {
             break;
         }
     }
-    return dot;
+    return 0;
 }
 
 int bubble3(int *arr, int len) {
-    int dot = 0;
-    int endIndex = len;
+    int lastSwap = len - 1;
     for (int i = 0; i < len-1; i++) {
-        int isSwap = 0;
-        for (int j = 0, end = endIndex; j < end-1; j++) {
-            if (dot++, arr[j] > arr[j+1])
+	int end = lastSwap;
+        for (int j = 0; j < end; j++) {
+            if (arr[j] > arr[j+1])
             {
                 int tmp = arr[j];
                 arr[j] = arr[j+1];
                 arr[j+1] = tmp;
-                endIndex = j+1;
-                isSwap = 1;
+                lastSwap = j; //the index of last swap, remain is sorted
             }
         }
-        if (isSwap == 0) { 
+        if (end == lastSwap) {  // swap nothing => sorted
             break;
         }
     }
-    return dot;
+    return 0;
 }

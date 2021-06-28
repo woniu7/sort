@@ -29,9 +29,9 @@ int merge2wayInplace(int *arr, int len, int pivot)
 	while (i < pivot && j < len)
 		arr[n++] += (arr[i]%max > arr[j]%max ? arr[j++]%max: arr[i++]%max) * max;
 	while (i < pivot)
-		arr[n++] = max*(arr[i++]%max);
+		arr[n++] += max*(arr[i++]%max);
 	while (j < len)
-		arr[n++] = max*(arr[j++]%max);
+		arr[n++] += max*(arr[j++]%max);
 
 	for (int i = 0; i < len; i++) arr[i] /= max;
 
